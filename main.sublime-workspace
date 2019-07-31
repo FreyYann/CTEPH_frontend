@@ -1,0 +1,528 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"ren",
+				"rename_file"
+			],
+			[
+				"unz",
+				"unzipped"
+			],
+			[
+				"mxnet",
+				"mxnet_p27"
+			],
+			[
+				"lign",
+				"line-height\tproperty"
+			],
+			[
+				"bash",
+				"bash_profile"
+			],
+			[
+				"Tex",
+				"TextSurf"
+			],
+			[
+				"dist",
+				"display_height"
+			],
+			[
+				"disp",
+				"display_width"
+			],
+			[
+				"game",
+				"gameDisplay"
+			],
+			[
+				"state",
+				"state_dict"
+			],
+			[
+				"st",
+				"state_dict"
+			],
+			[
+				"sta",
+				"state_prob"
+			],
+			[
+				"sate",
+				"state_dict"
+			],
+			[
+				"sat",
+				"state_list"
+			],
+			[
+				"geo",
+				"geo_location"
+			],
+			[
+				"a",
+				"Attack"
+			],
+			[
+				"s",
+				"SP"
+			],
+			[
+				"H",
+				"HIT"
+			],
+			[
+				"l",
+				"list"
+			],
+			[
+				"list",
+				"list_outjoin"
+			],
+			[
+				"hash",
+				"hashtable1"
+			],
+			[
+				"hashtabl",
+				"hashtable2"
+			],
+			[
+				"writ",
+				"writerow"
+			],
+			[
+				"ite",
+				"item_content"
+			],
+			[
+				"table",
+				"table_real"
+			],
+			[
+				"C",
+				"C_s"
+			],
+			[
+				"print",
+				"print_p"
+			],
+			[
+				"ma",
+				"make_model"
+			],
+			[
+				"sp",
+				"split"
+			],
+			[
+				"each",
+				"each_file\tstatement"
+			],
+			[
+				"m",
+				"main\tmethod (main)"
+			],
+			[
+				"n",
+				"n_list\tstatement"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+		[
+			[
+				[
+					"Packages/C++/C++ Single File.sublime-build",
+					""
+				],
+				[
+					"Packages/C++/C++ Single File.sublime-build",
+					"Run"
+				]
+			],
+			[
+				"Packages/C++/C++ Single File.sublime-build",
+				"Run"
+			]
+		],
+		[
+			[
+				[
+					"Packages/Python/Python.sublime-build",
+					""
+				],
+				[
+					"Packages/Python/Python.sublime-build",
+					"Syntax Check"
+				]
+			],
+			[
+				"Packages/Python/Python.sublime-build",
+				""
+			]
+		],
+		[
+			[
+				[
+					"Packages/User/myjava.sublime-build",
+					""
+				],
+				[
+					"Packages/User/myjava.sublime-build",
+					"Run"
+				]
+			],
+			[
+				"Packages/User/myjava.sublime-build",
+				""
+			]
+		]
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 277.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"install ",
+				"Package Control: Install Package"
+			],
+			[
+				"ins",
+				"Package Control: Install Package"
+			],
+			[
+				"remo e",
+				"Package Control: Remove Package"
+			],
+			[
+				"inst",
+				"Package Control: Install Package"
+			],
+			[
+				"remove",
+				"Package Control: Remove Package"
+			],
+			[
+				"package",
+				"Package Control: Install Package"
+			],
+			[
+				"my",
+				"Build With: My-----Python"
+			],
+			[
+				"package ",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 435.0
+	},
+	"console":
+	{
+		"height": 126.0,
+		"history":
+		[
+			"import urllib.request,os; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); open(os.path.join(ipp, pf), 'wb').write(urllib.request.urlopen( 'http://sublime.wbond.net/' + pf.replace(' ','%20')).read())",
+			"import urllib.request,os,hashlib; h = 'df21e130d211cfc94d9b0905775a7c0f' + '1e3d39e33b79698005270310898eea76'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)",
+			"http://www.sublimelinter.com",
+			"import urllib.request,os,hashlib; h = 'df21e130d211cfc94d9b0905775a7c0f' + '1e3d39e33b79698005270310898eea76'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/Users/yanxinzhou/train/work/itlize_demo/src/models.py",
+		"/Users/yanxinzhou/train/work/itlize_demo/src/main/route.py",
+		"/Users/yanxinzhou/train/work/itlize_demo/src/__init__.py",
+		"/Users/yanxinzhou/train/work/itlize_demo/sftp-config.json",
+		"/Users/yanxinzhou/train/work/itlize_demo/src/main/__init__.py",
+		"/Users/yanxinzhou/train/work/itlize_demo/src/errors/handlers.py",
+		"/Users/yanxinzhou/train/work/itlize_demo/src/errors/__init__.py",
+		"/Users/yanxinzhou/train/work/itlize_demo/src/config.py",
+		"/Users/yanxinzhou/train/work/itlize_demo/src/creat_app.py",
+		"/Users/yanxinzhou/train/work/itlize_demo/__init__.py",
+		"/Users/yanxinzhou/train/work/itlize_demo/src",
+		"/Users/yanxinzhou/train/work/itlize_demo/untitled",
+		"/Users/yanxinzhou/Downloads/website/index.html",
+		"/Users/yanxinzhou/train/spark/RSNA-competion/README.MD",
+		"/Users/yanxinzhou/train/tweet/crawl.py",
+		"/Users/yanxinzhou/Downloads/sample_submission.csv",
+		"/Users/yanxinzhou/Downloads/test.py",
+		"/Users/yanxinzhou/Library/Containers/com.tencent.xinWeChat/Data/Library/Application Support/com.tencent.xinWeChat/2.0b4.0.9/399d69c6ce2f3903580c9de6a9621430/Message/MessageTemp/ab8b3aa47ed322c308e67e9ddf3c912e/File/mask_rcnn_coco.py",
+		"/Users/yanxinzhou/.aws/credentials",
+		"/Users/yanxinzhou/train/CTEPH Detection/autorun/mxnet.py",
+		"/Users/yanxinzhou/train/CTEPH Detection/autorun/tools.py",
+		"/Users/yanxinzhou/train/CTEPH Detection/autorun/data_management.py",
+		"/Users/yanxinzhou/Library/Application Support/Sublime Text 3/Packages/User/SFTP.sublime-settings",
+		"/Users/yanxinzhou/train/CTEPH Detection/autorun/autorun.py",
+		"/Users/yanxinzhou/train/CTEPH Detection/autorun/adjustor.py",
+		"/Users/yanxinzhou/train/CTEPH Detection/autorun/reader.py",
+		"/Users/yanxinzhou/train/CTEPH Detection/autorun/reader",
+		"/Users/yanxinzhou/train/CTEPH Detection/autorun/sftp-config.json",
+		"/Users/yanxinzhou/train/CTEPH Detection/autorun/__init__.py",
+		"/Users/yanxinzhou/train/CTEPH Detection/autorun/awsServer",
+		"/Users/yanxinzhou/train/CTEPH Detection/awsServer",
+		"/Users/yanxinzhou/train/CTEPH Detection/data/1.2.124.38368.58471559820906434474.73117176/aashimahuja_1.2.124.38368.58471559820906434474.73117176_JSON.json",
+		"/Users/yanxinzhou/train/CTEPH Detection/bash/autorun2.bat",
+		"/Users/yanxinzhou/train/CTEPH Detection/bash/autorun.bat",
+		"/Users/yanxinzhou/train/CTEPH Detection/bash/confidential.txt",
+		"/Users/yanxinzhou/train/CTEPH Detection/1.2.124.38368.58471559820906434474.73117176_info/_4c285e1aac3141a9963ce7c55ac072df.json",
+		"/Users/yanxinzhou/train/CTEPH Detection/1.2.124.38368.58471559820906434474.73117176/aashimahuja_1.2.124.38368.58471559820906434474.73117176_JSON.json",
+		"/Users/yanxinzhou/train/pig_1552661834513.log",
+		"/Users/yanxinzhou/train/sftp-config.json",
+		"/Users/yanxinzhou/train/server",
+		"/Users/yanxinzhou/train/sftp-config-alt.json",
+		"/Users/yanxinzhou/train/fdsadsf",
+		"/Users/yanxinzhou/train/untitled",
+		"/cloudera",
+		"/untitled",
+		"/Users/yanxinzhou/train/tutorial/hive.sql",
+		"/Users/yanxinzhou/train/BIDSMarch/README.MD",
+		"/Users/yanxinzhou/train/cs553/assign 2/partB_final version/hadoop/HadoopSort.java",
+		"/Users/yanxinzhou/train/cs553/assign 2/partB_final version/spark/SparkSort.java",
+		"/Users/yanxinzhou/Downloads/red_fisher-2r-df5e73c74d79/engine.py",
+		"/Users/yanxinzhou/Downloads/red_fisher-2r-df5e73c74d79/README.md",
+		"/Users/yanxinzhou/course/csshtml/html/index.html",
+		"/Users/yanxinzhou/course/csshtml/index.html",
+		"/etc/hostconfig",
+		"/Users/yanxinzhou/course/sql/1.bat",
+		"/Users/yanxinzhou/Downloads/apache2.conf",
+		"/Users/yanxinzhou/play/composetest/docker-compose.yml",
+		"/Users/yanxinzhou/play/composetest/Dockerfile",
+		"/Users/yanxinzhou/play/composetest/app.py",
+		"/Users/yanxinzhou/life/2.py",
+		"/Users/yanxinzhou/life/1.py",
+		"/Users/yanxinzhou/course/thesis/is-FreyYann/docs/param/result.out",
+		"/Users/yanxinzhou/course/thesis/is-FreyYann/docs/param/output.log",
+		"/Users/yanxinzhou/course/thesis/is-FreyYann/docs/param.out",
+		"/Users/yanxinzhou/course/thesis/is-FreyYann/docs/param1.out",
+		"/Users/yanxinzhou/nltk_data/corpora/europarl_raw/portuguese/ep-00-02-16.pt",
+		"/Users/yanxinzhou/course/kaggle/agriculture/data/rsna/data/patient_list/train.lst",
+		"/Users/yanxinzhou/Desktop/crackxfini/README.MD",
+		"/Users/yanxinzhou/Desktop/crackxfini/run.sh",
+		"/Users/yanxinzhou/course/kaggle/agriculture/data/rsna/data/root/patient_list/train.lst",
+		"/Users/yanxinzhou/course/thesis/incubator-mxnet/src/io/image_det_aug_default.cc",
+		"/Users/yanxinzhou/course/kaggle/agriculture/data/rsna/data/root/patient_list/train.rec",
+		"/Users/yanxinzhou/Downloads/tool_pool/README.md",
+		"/Users/yanxinzhou/course/thesis/Learn-with-LLP-and-Differential-Privacy/corecode/classifiers.py",
+		"/Users/yanxinzhou/course/docker/sh/test.sh",
+		"/Users/yanxinzhou/course/review/test.sh",
+		"/Users/yanxinzhou/course/thesis/Learn-with-LLP-and-Differential-Privacy/corecode/copy/classifiers copy.py",
+		"/Users/yanxinzhou/course/thesis/Learn-with-LLP-and-Differential-Privacy/corecode/classifiers copy 2.py",
+		"/Users/yanxinzhou/course/review/2016_NYC_Yellow_Cab_trip_record_data/2016_NYC_Yellow_Cab_trip_record_data/README.md",
+		"/Users/yanxinzhou/course/math574/project/debug2.py",
+		"/Users/yanxinzhou/course/system/setup ipython environment.txt",
+		"/Users/yanxinzhou/Downloads/Note.html",
+		"/Users/yanxinzhou/Downloads/Tensorflow.html",
+		"/Users/yanxinzhou/port/macports-base/vendor/tcllib-1.18/modules/virtchannel_transform/otp.tcl",
+		"/Users/yanxinzhou/course/thesis/xs.txt",
+		"/Users/yanxinzhou/course/math574/R programs/speed of lightl.R",
+		"/Users/yanxinzhou/Course/C++/try.cpp",
+		"/Users/yanxinzhou/Desktop/爆肝工程師的異世界狂想曲 – Anime1.me 動畫線上看.htm",
+		"/Users/yanxinzhou/Course/Review/web/untitled.pl",
+		"/Users/yanxinzhou/DataMing/Review-Weekly/zhihu.html",
+		"/Users/yanxinzhou/DataMing/glassdoor.html",
+		"/Users/yanxinzhou/Course/Review/weeklyreview/Review-Weekly/hackrank/t.py",
+		"/Users/yanxinzhou/DataMing/zhihu.html",
+		"/Users/yanxinzhou/DataMing/test.html",
+		"/Users/yanxinzhou/Course/Review/weeklyreview/Review-Weekly/test.html",
+		"/Users/yanxinzhou/DataMing/Data/residence_investment_shanghai_1978_2015.csv",
+		"/Users/yanxinzhou/Course/Review/weeklyreview/Review-Weekly/sys.py",
+		"/Users/yanxinzhou/Course/Review/weeklyreview/Review-Weekly/mysql.py",
+		"/Users/yanxinzhou/Course/Review/weeklyreview/Review-Weekly/try",
+		"/Users/yanxinzhou/Course/Math 574/Hw/Hw1/e1",
+		"/Users/yanxinzhou/Course/Project/attackicloud/shodan123.py",
+		"/Users/yanxinzhou/Course/Project/attackicloud/shodan.py",
+		"/Users/yanxinzhou/Course/Project/attackicloud/search.py",
+		"/Users/yanxinzhou/Course/Project/attackicloud/ibrute/id_brute.py",
+		"/Users/yanxinzhou/Course/untitled.py",
+		"/Users/yanxinzhou/Downloads/dd",
+		"/Users/yanxinzhou/Course/Math564/project/nyc/11liverpoolfan/11liverpoolfan.json",
+		"/Users/yanxinzhou/.jupyter/untitled.py",
+		"/Users/yanxinzhou/.jupyter/jupyter_notebook_config.py",
+		"/Users/yanxinzhou/Desktop/1.py",
+		"/Users/yanxinzhou/Course/testfield/shell.sh",
+		"/Users/yanxinzhou/Course/latex/test.sh",
+		"/Users/yanxinzhou/Downloads/BLU-R1-HD-Bootlaoder-Unlock/1-R1-HD-Amazon-Bootloader-Unlock.bat",
+		"/Users/yanxinzhou/Course/project/twitter/untitled.py",
+		"/Users/yanxinzhou/Course/project/twitter/df.html",
+		"/Users/yanxinzhou/Course/Math564/untitled.py",
+		"/Users/yanxinzhou/Course/Math564/test.py",
+		"/Users/yanxinzhou/Course/Math564/untitled.R",
+		"/Users/yanxinzhou/Course/project/twitter/MM1Q.py",
+		"/Users/yanxinzhou/Downloads/Simulating_Queues-master/MM1Q.py",
+		"/Users/yanxinzhou/GitHub/project/test/test.py",
+		"/Users/yanxinzhou/Course/Python/pygame/test.py",
+		"/Users/yanxinzhou/GitHub/economist/test.py",
+		"/Users/yanxinzhou/PycharmProjects/test/temp",
+		"/Users/yanxinzhou/Course/cs430/hw7/ecnomist",
+		"/Users/yanxinzhou/Course/MBA513/Greetings.txt",
+		"/Users/yanxinzhou/course/python/project-hello-world/try.py",
+		"/Users/yanxinzhou/Course/Python/project-hello-world/test.py"
+	],
+	"find":
+	{
+		"height": 41.0
+	},
+	"find_in_files":
+	{
+		"height": 154.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 31.0
+	},
+	"input":
+	{
+		"height": 58.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.SublimeLinter":
+	{
+		"height": 144.0
+	},
+	"output.SublimeLinter Messages":
+	{
+		"height": 98.0
+	},
+	"output.exec":
+	{
+		"height": 41.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"output.sftp":
+	{
+		"height": 144.0
+	},
+	"pinned_build_system": "Packages/C++/C++ Single File.sublime-build",
+	"project": "main.sublime-project",
+	"replace":
+	{
+		"height": 58.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"",
+				"~/course/python/2.py"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 380.0
+	},
+	"select_symbol":
+	{
+		"height": 47.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 392.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 237.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
