@@ -6,7 +6,7 @@ The app runs on AWS EC2: http://192.168.1.217:5000/
 from myproject import app
 from flask import render_template, flash
 from myproject.user.user import UserForm
-from myproject.config import UPLOAD_FOLDER
+from myproject.config import *
 
 
 @app.route('/', methods=['GET', 'POST'])
@@ -22,8 +22,9 @@ def index():
         import os
         path = os.path.join(UPLOAD_FOLDER, name)
         # os.system("mkdir %s" % path)
-        os.system("rm /home/ItDev_Billy/itlize_demo/myproject/static/patient/*")
-        os.system("rm /home/ItDev_Billy/itlize_demo/myproject/static/result/*")
+        os.system("rm %s/*"%UPLOAD_FOLDER)
+        os.system("rm %s/*"%IMAGE_FOLDER)
+        os.system("rm %s/*"%RESULT_FOLDER)
         # todo current user
     return render_template('home.html', form=form, name=name)
 
