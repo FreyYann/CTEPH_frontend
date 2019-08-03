@@ -1,11 +1,23 @@
+
+<!-- https://stackoverflow.com/questions/8624520/passing-a-variable-into-a-jinja-import-or-include-from-a-parent-html-file -->
+
+
+{%for i in rangeX%}
+{%if '.' in dirlist[i]%}
 <li class="image__sub-item">
   <!-- class="image__sub-list" -->
   <ul class="image__list" >
     <li class="image__list-item">
-      <img class="image__list-img" src="../../static/assets/dog.JPG" alt="subItems">
+      <!-- ../static/patient/{{dirlist[i]}} -->
+      <img class="image__list-img" src="../static/patient/{{dirlist[i]}}" alt="subItems">
     </li>
     <li class="image__list-item">
-      <img class="image__list-img" src="../../static/assets//heart.jpg" alt="subItems">
+      <!-- ../static/result/{{result[i]}} -->
+      <img class="image__list-img" src="../static/result/{{result[i]}}" alt="subItems">
     </li>
   </ul>
 </li>
+
+
+{%endif%}
+{%endfor%}
