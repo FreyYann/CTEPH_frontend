@@ -1,6 +1,14 @@
 {% extends "base.html" %}
+
 {% block content %}
-<div class="jumbotron">
+
+{% include './home/header.html'%}
+{% include './home/story.html'%}
+{% endblock %}
+
+
+
+<!--
 <p>
 {% if name %}
   {{name}} is the previous user!
@@ -9,18 +17,20 @@
   Please enter your name:
 {% endif %}
 </p>
-<!-- {% for m in get_flashed_messages()%}
+
+-----------------------------------------
+not included in original config
+-----------------------------------------
+
+{% for m in get_flashed_messages()%}
 <p>{{m}}</p>
-{% endfor %} -->
+{% endfor %}
+
+---------------------------------------------
+
 <form method="POST">
     {# This hidden_tag is a CSRF security feature. #}
     {{ form.hidden_tag() }}
     {{ form.name.label }} {{ form.name(class='some-css-class') }}
     {{ form.submit() }}
-</form>
-
-<img src="../static/resource/4.png" width="800" height="500">	
-</div>
-
-
-{% endblock %}
+</form> -->

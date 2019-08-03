@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block content %}
+<main class="file" >
+  {% include 'navbar.html'%}
+<div class="heading mb-md mt-md">
+  <p class="heading__primary">Upload Files</p>
+</div>
+<!-- just for decoration perposes -->
+  <div class="file__box">
+    <label class="file__label" for="file">
+      <svg class="file__svg">
+          <use xlink:href="../static/assets/sprint.svg#icon-document-add"></use>
+      </svg>
+    </label>
+
+    <input class="file__input" id="file" type="file" multiple>
+  </div>
+</main>
+
+{% endblock %}

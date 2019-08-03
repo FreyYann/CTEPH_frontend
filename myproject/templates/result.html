@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+{% block content %}
+<main class="main">
+    {% include 'navbar.html'%}
+  <!-- <hr> -->
+  <div class="image">
+    <div class="image__top">
+        <button class="image__btn">Algorithm</button>
+    </div>
+    <div class="image__main-view">
+      <div class="frame__main">
+        <img class="frame__img" src="../static/assets/medical.png" alt="Original">
+      </div>
+      <div class="frame__sub">
+        <img class="frame__img" src="../static/assets/medical.png" alt="SubImages">
+      </div>
+
+    </div>
+    <hr class="hr__line" >
+    <div class="image__sub">
+      <ul class="image__sub-list">
+          {% include './result/item.html'%}
+          {% include './result/item.html'%}
+          {% include './result/item.html'%}
+          {% include './result/item.html'%}
+          {% include './result/item.html'%}
+          {% include './result/item.html'%}
+          {% include './result/item.html'%}
+          {% include './result/item.html'%}
+          {% include './result/item.html'%}
+          {% include './result/item.html'%}
+          {% include './result/item.html'%}
+          {% include './result/item.html'%}
+          {% include './result/item.html'%}
+          {% include './result/item.html'%}
+          {% include './result/item.html'%}
+          {% include './result/item.html'%}
+      </ul>
+</div>
+</div>
+
+
+
+</main>
+<script>
+  window.addEventListener("wheel", myFunction);
+  let scroll = document.getElementsByClassName("image__sub-list");
+  function myFunction(event){
+    if(event.wheelDelta > 0){
+      listScrollRight();
+    }else{
+      listScrollLeft();
+    }
+  }
+
+  // scroll list to the left
+  function listScrollLeft() {
+    scroll[0].scrollLeft += 30;
+  }
+  // scroll list to the right
+  function listScrollRight() {
+    scroll[0].scrollLeft -= 30;
+  }
+
+  // scrollBy(100, 0)
+
+</script>
+{% endblock %}
