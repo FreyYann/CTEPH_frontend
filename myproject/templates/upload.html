@@ -7,14 +7,49 @@
 </div>
 <!-- just for decoration perposes -->
   <div class="file__box">
+  <!-- <form method="POST" enctype="multipart/form-data" class="file__box"> -->
+
     <label class="file__label" for="file">
       <svg class="file__svg">
           <use xlink:href="../static/assets/sprint.svg#icon-document-add"></use>
       </svg>
     </label>
 
-    <input class="file__input" id="file" type="file" multiple>
+    <input
+      id="file"
+      class="file__input"
+      name="photos"
+      type="file" multiple>
+  <!-- </form> -->
   </div>
 </main>
+
+
+<script>
+       var file = document.getElementById("file");
+       file.addEventListener("change" ,fileChange);
+
+
+      function fileChange(event){
+        console.log("file change");
+        //SEND THE FILE LIST AS A STRING
+        console.log(file.files);
+
+        // call this url to get the access to the python backend with the files
+        //'http://localhost:5000/patient/upload';
+        fetch("http://localhost:5000/patient/about", {
+            method: 'POST',
+               filelist: JSON.stringify(file.files),
+            headers:{
+              'Content-Type': 'application/json'
+            }
+        }).then(res=>{// SUCCESS
+          // change the url on the page
+          location.replace('http://localhost:5000/patient/inference');
+          // console.log(res)}
+        ).catch(err=>{console.log("fetch error: from upload POST METHOD in script")})
+      }
+
+</script>
 
 {% endblock %}
