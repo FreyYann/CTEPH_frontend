@@ -42,24 +42,26 @@ def upload_file():
 
 @patient_blueprint.route('/inference', methods=['GET', 'POST'])
 def inference():
-    import os
-    dirlist = os.listdir(UPLOAD_FOLDER)
-    # os.system("echo 'hello world'>> /home/ubuntu/1.txt")
-    # os.system('source activate p36')
-    if dirlist:
-        os.system("/home/ItDev_Billy/.conda/envs/p36/bin/python\
-            /home/ItDev_Billy/CTEPH_mrcnn/Mask_RCNN/tools/demo_mrcnn.py")
+    if request.method == 'POST':
+        import os
+        dirlist = os.listdir(UPLOAD_FOLDER)
+        # os.system("echo 'hello world'>> /home/ubuntu/1.txt")
+        # os.system('source activate p36')
+        if dirlist:
+            os.system("/home/ItDev_Billy/.conda/envs/p36/bin/python\
+                /home/ItDev_Billy/CTEPH_mrcnn/Mask_RCNN/tools/demo_mrcnn.py")
 
-    # dirlist = [os.path.join(UPLOAD_FOLDER, x) for x in dirlist]
-    # do inference
-    # show the result
-    # remove files in the folder
-    result_path = "/home/ItDev_Billy/itlize_demo/myproject/static/result"
-    result = [x for x in os.listdir(result_path)]
-    return render_template('inference.html', rangeX=range(len(dirlist)),
-                           dirlist=dirlist, result=result)
+        # dirlist = [os.path.join(UPLOAD_FOLDER, x) for x in dirlist]
+        # do inference
+        # show the result
+        # remove files in the folder
+        result_path = "/home/ItDev_Billy/itlize_demo/myproject/static/result"
+        result = [x for x in os.listdir(result_path)]
+        return render_template('result.html', rangeX=range(len(dirlist)),
+                               dirlist=dirlist, result=result)
+    return render_template('result.html')
 
 
-@patient_blueprint.route('/QA', methods=['GET', 'POST'])
-def QA():
-    return render_template('QA.html')
+@patient_blueprint.route('/about', methods=['GET', 'POST'])
+def about():
+    return render_template('about.html')
