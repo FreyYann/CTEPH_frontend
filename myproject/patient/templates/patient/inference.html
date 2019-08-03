@@ -5,10 +5,10 @@
 	{%for i in rangeX%}
 	{%if '.' in dirlist[i]%}
 	<li>{{i}}</li>
-	<img src="../static/patient/{{dirlist[i]}}" width="500" height="500">
+	<img src="../static/png/{{dirlist[i]}}" width="500" height="500">
   	<li>{{dirlist[i]}}</li>
   	<li>{{i}}</li>
-  	<img src="../static/result/{{result[i]}}" width="500" height="500">
+  	<img src="../static/result/pred-{{dirlist[i]}}" width="500" height="500">
   	<li>{{result[i]}}</li>
   	{%endif%}
   	{%endfor%}

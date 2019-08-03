@@ -3,9 +3,6 @@ import pydicom
 import SimpleITK as sitk
 import dicom
 from PIL import Image
-# import matplotlib.pyplot as plt
-
-
 class Adjustor:
     """
     Adjust the window of the dicom to show different aspects
@@ -82,18 +79,3 @@ class Adjustor:
         img_temp[max_index] = 255
 
         return img_temp  # .astype(int)
-
-
-if __name__ == '__main__':
-    import os
-    path='/Users/yanxinzhou/train/work/itlize_demo/data'
-    for f in os.listdir(path):
-        if 'dcm' in f:
-            prefix = f.split('.')[0]
-            a = Adjustor()
-            print(f)
-            arr = a.get_pixeldata(f, 'Lung2')[0]
-
-            # print(type(arr), np.max(arr), np.min(arr))
-            img = Image.fromarray(np.array(arr).astype('uint8'))
-            img.save(os.path.join(path,'%s.png' % prefix))
