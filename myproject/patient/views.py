@@ -1,6 +1,7 @@
-from flask import Blueprint, render_template, redirect, url_for
-from flask import Flask, flash, request, redirect, url_for
+from flask import Blueprint, render_template, redirect, url_for,  jsonify
+from flask import Flask, flash, request, redirect, url_for,jsonify
 # from myproject import db
+import pdb
 import os
 # todo create folders for differents users
 from myproject.config import UPLOAD_FOLDER
@@ -59,12 +60,40 @@ def inference():
         result = [x for x in os.listdir(result_path)]
         return render_template('result.html', rangeX=range(len(dirlist)),
                                dirlist=dirlist, result=result)
-    return render_template('result.html')
+    return render_template('result.html',
+    originalImage="medical.png",
+    createImage="medical.png")
 
 
 @patient_blueprint.route('/about', methods=['GET', 'POST'])
-def QA():
+def about():
     if request.method == 'POST':
-        print("TEST. HELLO FILE SENT HERE");
-        return "Sending back this"
+        # pdb.set_trace()
+        # print request.form
+        print(request.files.getlist('photos'))
+        # print(request.values)
+        print("TEST. HELLO FILE SENT HERE")
+        return jsonify({'success': 'remove the document item'}), 201
     return render_template('about.html')
+
+
+# passing the selected images to the backend with a get request
+@patient_blueprint.route('/image', methods=['GET'])
+def getImage():
+    oImage=request.args["originalImage"]
+    cImage=request.args["createImage"]
+    # print oImage
+    # print cImage
+    return render_template('result.html',
+             originalImage=oImage,
+             createImage=cImage)
+    # return jsonify({'success': 'remove the document item'}), 201
+
+@patient_blueprint.route('/some', methods=['GET'])
+def getSomething():
+    # print oImage
+    print "something hit here"
+    return render_template('result.html',
+             originalImage="anima.jpg",
+             createImage="heart.jpg")
+    # return jsonify({'success': 'remove the document item'}), 201
