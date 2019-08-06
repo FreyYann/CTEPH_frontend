@@ -1,0 +1,29 @@
+h1{
+	color:blue;
+}
+li{
+	color:rgb(30,200,0);
+}
+p{
+	color:#eab01c;
+}
+h4{
+	color: rgba(20,200,0,1);
+}
+
+body{
+	background: url(https://lh6.googleusercontent.com/proxy/CQJw_5O2FrUbRAdIwhbfgsWst-cgj18_xUCJV2ez4KAR9_RvoRkiVFazDUr7H8UuPoHF0a3CUI7KddALgM_jZYFmu6Jq-mzDRXTyn43FY1Imq3suA1Rs32a5Tgvr8myMhPHUCQp-vBhrSgnlL4kfsAlFBxA=w357-h238-k-no);
+	background-repeat: no-repeat;
+}
+.d1{
+	background:blue;
+	border:green;
+	border-width:2px;
+	border-style:solid;
+}
+.d2{
+	background:yellow;
+	border:red;
+	border-width:1px;
+	border-style:dotted;
+}

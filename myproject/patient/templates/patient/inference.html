@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block content %}
+<p>Do inference here</p>
+<ul style="list-style-type:disc;">
+	{%for i in rangeX%}
+	{%if '.' in dirlist[i]%}
+	<li>{{i}}</li>
+	<img src="../static/png/{{dirlist[i]}}" width="500" height="500">
+  	<li>{{dirlist[i]}}</li>
+  	<li>{{i}}</li>
+  	<img src="../static/result/pred-{{dirlist[i]}}" width="500" height="500">
+  	<li>{{result[i]}}</li>
+  	{%endif%}
+  	{%endfor%}
+</ul>
+<button href="{{url_for('patient.inference') }} "> Click</button>
+<button href="{{url_for('index') }} "> test</button>
+{% endblock %}
