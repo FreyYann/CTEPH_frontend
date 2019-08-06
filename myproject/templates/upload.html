@@ -9,14 +9,14 @@
   <div class="file__box">
   <!-- <form method="POST" enctype="multipart/form-data" class="file__box"> -->
 
-    <label class="file__label" for="file">
+    <label class="file__label" for="files">
       <svg class="file__svg">
           <use xlink:href="../static/assets/sprint.svg#icon-document-add"></use>
       </svg>
     </label>
 
     <input
-      id="file"
+      id="files"
       class="file__input"
       name="photos"
       type="file" multiple>
@@ -26,27 +26,37 @@
 
 
 <script>
-       var file = document.getElementById("file");
-       file.addEventListener("change" ,fileChange);
+       var fileInput = document.getElementById("files");
+       fileInput.addEventListener("change" ,fileChange);
 
 
       function fileChange(event){
         console.log("file change");
         //SEND THE FILE LIST AS A STRING
-        console.log(file.files);
+        // console.log(files.files);
+        var files  = event.target.files;
+        const filelist = [];
+        const formData = new FormData();
 
+        // console.log(files[0]);
+        for (let  file of  Object.values(files)) {
+          // filelist.push(file);
+          // formData[file.name] = file;
+          formData.append("photos", file);
+        }
         // call this url to get the access to the python backend with the files
-        //'http://localhost:5000/patient/upload';
-        fetch("http://localhost:5000/patient/about", {
-            method: 'POST',
-               filelist: JSON.stringify(file.files),
-            headers:{
-              'Content-Type': 'application/json'
-            }
-        }).then(res=>{// SUCCESS
-          // change the url on the page
-          location.replace('http://localhost:5000/patient/inference');
-          // console.log(res)}
+        // 'http://localhost:5000/patient/upload';
+        console.log(formData)
+        // delete options.headers['Content-Type'];
+        const options = {
+          method: 'POST',
+          body: formData,
+        };
+        fetch("/patient/about", options).then(res=>{ // SUCCESS
+          console.log("from back-end ");
+          console.log(res)
+          console.log(res.body)
+          location.replace('/patient/inference');
         }).catch(err=>{console.log("fetch error: from upload POST METHOD in script")})
       }
 
