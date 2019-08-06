@@ -4,23 +4,50 @@
     {% include 'navbar.html'%}
   <!-- <hr> -->
   <div class="image">
-    <div class="image__top">
-        <button class="image__btn">Algorithm</button>
-    </div>
+    <form action="/patient/some" class="image__top">
+        <button type="submit" class="image__btn">Algorithm</button>
+    </form>
     <div class="image__main-view">
       <div class="frame__main">
-        <img class="frame__img" src="../static/assets/medical.png" alt="Original">
+        <img class="frame__img" src="../static/assets/{{originalImage}}" alt="Original">
+        <!-- <img class="frame__img" src="../static/assets/medical.png" alt="Original"> -->
       </div>
       <div class="frame__sub">
-        <img class="frame__img" src="../static/assets/medical.png" alt="SubImages">
+        <img class="frame__img" src="../static/assets/{{createImage}}" alt="SubImages">
+        <!-- <img class="frame__img" src="../static/assets/medical.png" alt="SubImages"> -->
       </div>
 
     </div>
     <hr class="hr__line" >
     <div class="image__sub">
       <ul class="image__sub-list">
+          <li id="0" class="image__sub-item">
+            <!-- class="image__sub-list" -->
+            <ul class="image__list" >
+              <li class="image__list-item">
+                <img class="image__list-img" src="../../static/assets/rem.png" alt="subItems">
+              </li>
+              <li class="image__list-item">
+                <img class="image__list-img" src="../../static/assets//anima.jpg" alt="subItems">
+              </li>
+            </ul>
+          </li>
           {% include './result/item.html'%}
-        
+          {% include './result/item.html'%}
+          {% include './result/item.html'%}
+          {% include './result/item.html'%}
+          {% include './result/item.html'%}
+          <li  id="5" class="image__sub-item">
+            <!-- class="image__sub-list" -->
+            <ul class="image__list" >
+              <li class="image__list-item">
+                <img class="image__list-img" src="../../static/assets/default.jpg" alt="subItems">
+              </li>
+              <li class="image__list-item">
+                <img class="image__list-img" src="../../static/assets/rem.png" alt="subItems">
+              </li>
+            </ul>
+          </li>
       </ul>
 </div>
 </div>
@@ -29,23 +56,73 @@
 
 </main>
 <script>
-  window.addEventListener("wheel", myFunction);
-  let scroll = document.getElementsByClassName("image__sub-list");
-  function myFunction(event){
-    if(event.wheelDelta > 0){
-      listScrollRight();
-    }else{
-      listScrollLeft();
-    }
-  }
+  window.addEventListener('load', Init);
 
-  // scroll list to the left
-  function listScrollLeft() {
-    scroll[0].scrollLeft += 30;
-  }
-  // scroll list to the right
-  function listScrollRight() {
-    scroll[0].scrollLeft -= 30;
+
+  function Init(){
+    var scrollIndex = 0;
+    // LIST
+    let scroll = document.getElementsByClassName("image__sub-list");
+    // LIST OF ITEMS
+    let lists = document.querySelectorAll(".image__sub-item");
+    const options = {
+      method: 'GET'
+    };
+    for(let item of lists){
+      item.addEventListener("click", getItems);
+    }
+
+    function getItems(event){
+      let firstFileName = event.currentTarget.children[0].children[0].children[0].src.split('/').pop();
+      let lastFileName = event.currentTarget.children[0].children[1].children[0].src.split('/').pop();
+      // send infromation to the backend so there template can change the image
+      // location.replace('/patient/about');
+      // console.log(event.currentTarget);
+      location.replace(`/patient/image?originalImage=${firstFileName}&createImage=${lastFileName}`);
+      // ajaxRequestSetImage(firstFileName, lastFileName);
+    }
+
+    window.addEventListener("wheel", myFunction);
+    function myFunction(event){
+  // MOVING LOCATION OF THE SCROLLBAR
+      if(event.wheelDelta > 0){
+        if(scrollIndex > 0){
+          scrollIndex--;
+        }
+        listScrollRight();
+      }else{
+        listScrollLeft();
+        if(scrollIndex < lists.length-1){
+          scrollIndex++;
+        }
+      }
+
+      /*
+        Every time they scroll the bar it switches
+      */
+      let firstFileName =lists[scrollIndex].childNodes[3].childNodes[1].childNodes[1].src.split('/').pop();
+      let lastFileName =lists[scrollIndex].childNodes[3].childNodes[3].childNodes[1].src.split('/').pop();
+      // ajaxRequest(firstFileName, lastFileName);
+
+    }
+
+    // scroll list to the left
+    function listScrollLeft() {
+      scroll[0].scrollLeft += 50;
+    }
+    // scroll list to the right
+    function listScrollRight() {
+      scroll[0].scrollLeft -= 50;
+    }
+
+    function ajaxRequestSetImage(firstFileName, lastFileName, slideIndex){
+      fetch(`/patient/image?originalImage=${firstFileName}&createImage=${lastFileName}`, options).then(res=>{ // SUCCESS
+        console.log("from back-end ")
+        console.log(res)
+        // console.log(res.body)
+        // location.replace('/patient/inference');
+      }).catch(err=>{console.log("fetch error: from image route GET METHOD in script")})
+    }
   }
 
   // scrollBy(100, 0)
