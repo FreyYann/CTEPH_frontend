@@ -1,0 +1,15 @@
+.manip{
+  height: 100vh;
+  width: 100%;
+  overflow:hidden;
+  background-color: #555;
+  position: relative;
+
+  &__container{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    // background-color: purple;
+    height: 50vh;
+  }
+}

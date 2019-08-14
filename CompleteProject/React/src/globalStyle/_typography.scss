@@ -1,0 +1,44 @@
+.heading{
+  display:block;
+  // background-color: violet;
+  text-align: center;
+
+  &__primary{
+    font-size: 6rem;
+    text-transform: uppercase;
+    font-weight: 700;
+    display:inline-block;
+    background-image: linear-gradient(to bottom right, #0059b3, #556a40);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    letter-spacing: 1.2rem;
+    font-style: italic;
+    padding: 2rem;
+  }
+
+  &__secondary{
+    font-size: 4rem;
+    text-transform: uppercase;
+    font-weight: 700;
+    display:inline-block;
+    background-image: linear-gradient(to bottom right, #000080 30%, #453 67%);
+    -webkit-background-clip: text; //#000080
+    background-clip: text;
+    color: transparent;
+    letter-spacing: 1rem;
+    font-style: italic;
+  }
+  &__tertiary{
+    font-size: 2rem;
+    text-transform: uppercase;
+    font-weight: 900;
+    display:inline-block;
+    background-image: linear-gradient(to bottom right, #000080, #453);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    letter-spacing: 1rem;
+    font-style: italic;
+  }
+}

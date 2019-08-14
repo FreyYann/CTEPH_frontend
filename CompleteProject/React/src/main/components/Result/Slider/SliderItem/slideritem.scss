@@ -1,0 +1,19 @@
+.slider{
+  &__item{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 1 0 150px;
+  cursor: pointer;
+  }
+  &__img{
+    width:90%;
+    height: 90%;
+    border-radius: 2px;
+    border: 2px solid transparent;
+    transition: all .5s;
+    &:hover{
+      border: 2px solid green;
+    }
+  }
+}

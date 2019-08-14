@@ -1,0 +1,40 @@
+//GLOBAL RESET
+*,*::after, *::before{
+  padding: 0;
+  margin: 0;
+  box-sizing: inherit;
+}
+
+html{
+  font-size: 62.5%;
+  @include respond(big-screen){
+    font-size: 75%;    // 1 rem = 12px
+  }
+  @include respond(tab-land){
+    font-size: 56.25%;    // 1 rem = 9px
+  }
+  @include respond(tab-port){
+    font-size: 50%;   // 1 rem  = 8 px
+  }
+  // this one has priority if condition is met
+  @include respond(phone){
+      font-size: 42.5%;   // 1 rem  = 8 px
+  }
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    box-sizing: border-box;
+    // background-color: #333;
+}
+body{
+  // background-color: red;
+  margin: 0 6rem;
+  // height: 100vh;
+  position: relative;
+  @include respond(tab-land){
+    margin: 0;
+  }
+}
+
+// Keeping the aspect ratio od image
+// object-fit: cover;
+// width: 100%;
+// height: 250px;

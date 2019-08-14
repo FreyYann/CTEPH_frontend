@@ -1,0 +1,21 @@
+
+
+.manip{
+  &__bottom{
+        height: 25vh;
+        // background-color: pink;
+        position: relative;
+        &-dec{
+          position: absolute;
+          bottom:-7.5vh;
+          right: -7.5vh;
+          // transform: translateX(-50%);
+          // left:-7.5vh;
+          width: 15vh;
+          height: 15vh;
+          background-color: transparent;
+          border: 4px solid #fff;
+          border-radius: 50%;
+        }
+  }
+}

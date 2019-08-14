@@ -1,0 +1,79 @@
+.narrator{
+  // background-color: orangered;
+  // height: 40rem;
+  // width: 100%;
+
+  &__show{
+  height: 40rem;
+  // background-color: #777;
+  position: relative;
+  // @include respond(tab-port){
+  //   display:none;
+  // }
+
+  }
+  &__box{
+    width: 100%;
+    clip-path: polygon(0 0, 100% 40%, 0 100%);
+    // clip-path: circle(40%);
+    &--1{
+     position: absolute;
+     top: 0%;
+     left: 45%;
+     z-index: 30;
+    }
+    &--2{
+      position: absolute;
+     top: 20%;
+     left: 42.5%;
+     z-index: 20;
+    }
+    &--3{
+      position: absolute;
+     top: 40%;
+     left: 40%;
+     z-index: 10;
+    }
+  }
+  &__img{
+   width: 100%;
+   height: 30rem ;
+   object-fit: fill;
+   background-repeat: no-repeat;
+   &--1{
+     background-image: url("../../../../../dist/static/assets/img/xray.jpg");
+      background-size: cover;
+      background-position: top left;
+   }
+   &--2{
+     background-image: url("../../../../../dist/static/assets/img/doctor.jpg");
+     background-size: cover;
+     background-position: center;
+   }
+   &--3{
+     background-image: url("../../../../../dist/static/assets/img/backbone.jpg");
+     background-size: cover;
+     background-position: center;
+   }
+  }
+
+  &__description{
+    height: 40rem;
+    padding: 4rem;
+    background-color: #777;
+  }
+  &__list{
+    // border-top: 1px solid #333;
+    padding: 1rem;
+    list-style: none;
+  }
+  &__item{
+      &:not(:last-child){
+        margin-bottom: 20px;
+      }
+  }
+  &__text{
+    font-size: 1.3rem;
+  }
+
+}

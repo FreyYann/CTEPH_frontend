@@ -1,0 +1,23 @@
+@import "globalStyle/variable";
+@import "globalStyle/mixin";
+@import "globalStyle/utilities";
+@import "globalStyle/grid";
+@import "globalStyle/animation";
+@import "globalStyle/base";
+@import "globalStyle/typography";
+@import "globalStyle/button";
+
+@import "globalStyle/navigation";
+
+
+
+/*
+Seem like i cant use media queries in child elements
+*/
+.narrator{
+    &__show{
+      @include respond(tab-port){
+        display:none;
+      }
+    }
+}

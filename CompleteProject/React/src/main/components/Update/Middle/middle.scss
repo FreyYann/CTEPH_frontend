@@ -1,0 +1,64 @@
+.loader{
+  position: relative;
+  &__screen{
+    border-radius: 50%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(#000, 0.3);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    display:none;
+  }
+  &__img{
+    fill: #eee;
+    width: 40%;
+    height: 40%;
+    animation: rotateSVG 5s infinite;
+  }
+}
+
+.update{
+  &__top{
+    background-color: #777;
+    top:0;
+    left:50%;
+    transform: translateX(-50%);
+    &-svg{
+      fill: #0f0;
+      width: 60%;
+      height: 60%;
+    }
+  }
+  &__bottom{
+    background-color: #777;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    &-svg{
+      fill: #f00;
+      width: 50%;
+      height: 50%;
+    }
+  }
+  &__bottom,&__top{
+    position: absolute;
+    width: 25%;
+    height: 25%;
+    border-radius: 50%;
+    z-index: 100;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+
+
+@keyframes rotateSVG {
+  from {transform: rotate(0deg);}
+  to {transform: rotate(360deg);}
+}
