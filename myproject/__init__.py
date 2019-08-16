@@ -23,5 +23,5 @@ basedir = os.path.abspath(os.path.dirname(__file__))
 
 from myproject.patient.views import patient_blueprint
 
-app.register_blueprint(patient_blueprint, url_prefix="/patient")
+app.register_blueprint(patient_blueprint, url_prefix="/api")
 # app.register_blueprint(puppies_blueprint, url_prefix='/puppies')
