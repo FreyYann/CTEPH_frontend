@@ -1,13 +1,22 @@
-from flask import Blueprint, render_template, redirect, url_for,  jsonify
-from flask import Flask, flash, request, redirect, url_for,jsonify
+from flask import Blueprint, render_template, redirect, url_for
+from flask import Flask, flash, request, redirect, url_for
 # from myproject import db
-import pdb
 import os
-# todo create folders for differents users
-from myproject.config import UPLOAD_FOLDER
-# from myproject.models import Owner
-# from myproject.owners.forms import AddForm
+import sys
+sys.path.append('/home/ItDev_Billy/itlize_demo/myproject')
+import pdb
+import re
+import SimpleITK as sitk
+from config import *
 from werkzeug.utils import secure_filename
+from patient import transformer
+from PIL import Image
+# import matplotlib as mpl
+# if os.environ.get('DISPLAY','') == '':
+#     print('no display found. Using non-interactive Agg backend')
+#     mpl.use('Agg')
+# import matplotlib.pyplot as plt
+import numpy as np
 
 ALLOWED_EXTENSIONS = set(['dcm'])
 patient_blueprint = Blueprint('patient',
@@ -20,21 +29,37 @@ def allowed_file(filename):
            filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
 
+def transormation(dir1, dir2):
+    a = transformer.Adjustor()
+    for f in os.listdir(dir1):
+        path = os.path.join(dir1, f)
+        if 'dcm' in f:
+            prefix = f.split('.')[0]
+            # plt.figure(figsize=(30,30))
+            arr = a.get_pixeldata(os.path.join(dir1, f), 'Tissue')[0]
+            # plt.imshow(np.array(arr),cmap='gray')
+
+            img = Image.fromarray(np.array(arr).astype('uint8'))
+            img.save(os.path.join(dir2, '%s.png' % prefix))
+
+            # plt.savefig(os.path.join(dir2,'%s1.png' % prefix))
+
+
 @patient_blueprint.route('/upload', methods=['GET', 'POST'])
 def upload_file():
     if request.method == 'POST':
         files = request.files.getlist('photos')
-
+        # print('debug')
+        # pdb.set_trace()
         for file in files:
             if file and allowed_file(file.filename):
                 filename = secure_filename(file.filename)
                 file.save(os.path.join(UPLOAD_FOLDER, filename))
-
-            # return redirect(url_for('main.upload',
-            #                 filename=filename))
-        # return 'Successfully uploaded to %s!' % UPLOAD_FOLDER
-        dirlist = os.listdir(UPLOAD_FOLDER)
+        # turn dcm to png
+        transormation(UPLOAD_FOLDER, IMAGE_FOLDER)
+        dirlist = os.listdir(IMAGE_FOLDER)
         dummylist = ['' for x in dirlist]
+
         return render_template('inference.html', rangeX=range(len(dirlist)),
                                dirlist=dirlist, result=dummylist)
 
@@ -43,57 +68,19 @@ def upload_file():
 
 @patient_blueprint.route('/inference', methods=['GET', 'POST'])
 def inference():
-    if request.method == 'POST':
-        import os
-        dirlist = os.listdir(UPLOAD_FOLDER)
-        # os.system("echo 'hello world'>> /home/ubuntu/1.txt")
-        # os.system('source activate p36')
-        if dirlist:
-            os.system("/home/ItDev_Billy/.conda/envs/p36/bin/python\
-                /home/ItDev_Billy/CTEPH_mrcnn/Mask_RCNN/tools/demo_mrcnn.py")
+    import os
+    dirlist = os.listdir(IMAGE_FOLDER)
+    if dirlist:
+        os.system("/home/ItDev_Billy/.conda/envs/p36/bin/python\
+            /home/ItDev_Billy/CTEPH_mrcnn/Mask_RCNN/tools/demo_mrcnn.py")
 
-        # dirlist = [os.path.join(UPLOAD_FOLDER, x) for x in dirlist]
-        # do inference
-        # show the result
-        # remove files in the folder
-        result_path = "/home/ItDev_Billy/itlize_demo/myproject/static/result"
-        result = [x for x in os.listdir(result_path)]
-        return render_template('result.html', rangeX=range(len(dirlist)),
-                               dirlist=dirlist, result=result)
-    return render_template('result.html',
-    originalImage="medical.png",
-    createImage="medical.png")
+    result_path = "/home/ItDev_Billy/itlize_demo/myproject/static/result"
+    result = [x for x in os.listdir(result_path)]
+    return render_template('inference.html', rangeX=range(len(dirlist)),
+                           dirlist=sorted(dirlist, key=lambda x: int(''.join(re.findall(r'\d+', x)))),
+                           result=sorted(result))
 
 
-@patient_blueprint.route('/about', methods=['GET', 'POST'])
-def about():
-    if request.method == 'POST':
-        # pdb.set_trace()
-        # print request.form
-        print(request.files.getlist('photos'))
-        # print(request.values)
-        print("TEST. HELLO FILE SENT HERE")
-        return jsonify({'success': 'remove the document item'}), 201
-    return render_template('about.html')
-
-
-# passing the selected images to the backend with a get request
-@patient_blueprint.route('/image', methods=['GET'])
-def getImage():
-    oImage=request.args["originalImage"]
-    cImage=request.args["createImage"]
-    # print oImage
-    # print cImage
-    return render_template('result.html',
-             originalImage=oImage,
-             createImage=cImage)
-    # return jsonify({'success': 'remove the document item'}), 201
-
-@patient_blueprint.route('/some', methods=['GET'])
-def getSomething():
-    # print oImage
-    print "something hit here"
-    return render_template('result.html',
-             originalImage="anima.jpg",
-             createImage="heart.jpg")
-    # return jsonify({'success': 'remove the document item'}), 201
+@patient_blueprint.route('/QA', methods=['GET', 'POST'])
+def QA():
+    return render_template('QA.html')
