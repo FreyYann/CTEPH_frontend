@@ -11,23 +11,50 @@ class Slide extends Component{
   constructor(props){
     super(props);
     this.state={
-        currentSlide: -1
+        currentSlide: -1,
+        words:[ "machine dolor sit amet, consectetur adipisicing elit.",
+                "x-ray dolor sit amet, consectetur adipisicing elit.",
+                "doctor dolor sit amet, consectetur adipisicing elit."
+              ],
+        type:'machine dolor sit amet, consectetur adipisicing elit.',
+        index:0
       };
     this.sliders = React.createRef();
     this.navSliders = React.createRef();
   }
   componentDidMount(){
-    this.slide = setInterval(this.switchSlides.bind(this), 3000);
+    // const { currentSlide, type, words } = this.state;
+    this.slide = setInterval(this.switchSlides.bind(this), 10000);
+    // console.log(words);
+    // console.log("type :" ,type)
+    // console.log(currentSlide)
+    // this.setState({type:words[0]});
+    // this.frame = setInterval(this.typeWords, 100);
   }
 
   switchSlides(){
-    // let currentSlide = 0;
-    // if(!this.state.currentSlide)  currentSlide = (this.state.currentSlide+1) % 3;
-    // console.log(this.state.currentSlide);
-    this.setState({ currentSlide:  (this.state.currentSlide+1) % 3 });
+    if(this.type)
+      clearInterval(this.type);
+    this.setState({ currentSlide:  (this.state.currentSlide+1) % 3, type: '', index: 0 });
+    // console.log("clear")
+    this.type = setInterval(this.typeWords, 150);
   }
+  typeWords = ()=>{
+    let { currentSlide, type, words, index } = this.state;
+    // console.log(type);
+    // console.log("type");
+
+    // if(this.state.currentSlide < 0){
+    //   this.state.word[0];
+    // }else{
+    // }
+    // console.log(!!words[currentSlide][index])
+    if(!!words[currentSlide][index])
+      this.setState({ type:type+ (words[(currentSlide+1)%3][index] || ''), index: index+1 });
+  }
+
+
   render(){
-    // if(this.state.currentSlide < 0) console.log("change")
     return (
       <div className="slide__container ">
         <div className="slide__overlay"
@@ -37,7 +64,7 @@ class Slide extends Component{
           <li className="slide showing">
               <img className="slide-img" src={machine} alt="Machine" />
               <div className="slide__decrip">
-                <p className="slide__text"> machine dolor sit amet, consectetur adipisicing elit.
+                <p className="slide__text"> {this.state.type}
                    </p>
               </div>
 
@@ -45,14 +72,14 @@ class Slide extends Component{
           <li className="slide">
             <img className="slide-img" src={backbone} alt="Xray" />
             <div className="slide__decrip">
-              <p className="slide__text"> x-ray dolor sit amet, consectetur adipisicing elit.
+              <p className="slide__text">{this.state.type}
                  </p>
             </div>
           </li>
           <li className="slide">
             <img className="slide-img" src={doctor} alt="Doctor" />
             <div className="slide__decrip">
-              <p className="slide__text"> doctor dolor sit amet, consectetur adipisicing elit.
+              <p className="slide__text"> {this.state.type}
                  </p>
             </div>
           </li>
@@ -69,10 +96,14 @@ class Slide extends Component{
     );
   }
   onMouseOverOverlay = (event) =>{
+    let {words , currentSlide} = this.state;
+    if(this.type)
+      clearInterval(this.type);
     clearInterval(this.slide);
+    this.setState({ type: words[(currentSlide+1)%3] });
   }
   onMouseLeaveOverlay = () => {
-    this.slide = setInterval(this.switchSlides.bind(this), 3000);
+    this.slide = setInterval(this.switchSlides.bind(this), 10000);
   }
 
 
@@ -100,11 +131,12 @@ class Slide extends Component{
 
         let currentSlide = (prev)%slides.length;
         slides[currentSlide].className = 'slide showing';
-
+        if(this.type)
+          clearInterval(this.type);
         clearInterval(this.slide);
-        this.slide = setInterval(this.switchSlides.bind(this), 3000);
+        this.slide = setInterval(this.switchSlides.bind(this), 10000);
         // update currentSlider number
-        this.setState({ currentSlide : currentSlide });
+        this.setState({ currentSlide : currentSlide, type: this.state.words[(currentSlide+1)%3] });
         // clearInterval(slideInterval);
       }
     }
@@ -115,16 +147,20 @@ class Slide extends Component{
 
   componentDidUpdate(prevProps){
     // console.log("components Did update");
-    let {currentSlide, element}  = this.state;
-    this.sliders.current.childNodes[currentSlide].className = 'slide';//  'slide showing';
-    this.navSliders.current.childNodes[currentSlide].style.backgroundColor = "#ccc";
-    this.sliders.current.childNodes[((currentSlide +1 ) % 3)].className =  'slide showing';
-    this.navSliders.current.childNodes[((currentSlide +1 ) % 3)].style.backgroundColor = "#777";
+    let {currentSlide}  = this.state;
+    // console.log(this.sliders.current.childNodes[currentSlide]);
+    if(currentSlide >= 0){
+      this.sliders.current.childNodes[currentSlide].className = 'slide';//  'slide showing';
+      this.navSliders.current.childNodes[currentSlide].style.backgroundColor = "#ccc";
+      this.sliders.current.childNodes[((currentSlide +1 ) % 3)].className =  'slide showing';
+      this.navSliders.current.childNodes[((currentSlide +1 ) % 3)].style.backgroundColor = "#777";
 
+    }
   }
 
   componentWillUnmount(){
     clearInterval(this.slide);
+    clearInterval(this.type);
   }
 
 }

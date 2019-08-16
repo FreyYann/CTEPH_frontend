@@ -8,6 +8,7 @@ export default function(state = false, action){
   switch (action.type) {
     case SHOW_RESULT :
       // console.log( "show nav result : " + action.payload);
+      // console.log(action.payload);
       return action.payload;
     default:
       return state;

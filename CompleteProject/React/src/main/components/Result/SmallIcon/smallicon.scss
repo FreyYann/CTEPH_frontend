@@ -27,34 +27,74 @@
   &__switch{
     width: 100%;
     text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
   &__btn{
+    border: none;
     position: relative;
     display:inline-block;
-    padding: 1.5rem;
+    padding: .5rem;
     background-color: #555;
     border-radius: 50%;
+    width: 4rem;
+    height: 4rem;
     margin-left:-15%;
     box-shadow: .3rem .7rem 1.8rem rgba(#777, .2);
     transition: all .3s;
-    span{
-      position: absolute;
-      top:50%;
-      left:50%;
-      transform: translate(-50%,-50%);
-      width: 50%;
-      height: 50%;
-      border-radius: 50%;
-      background: #01336C;
-    }
+
     &:hover{
       transform: scaleX(1.2) scaleY(1.1) translateY(-2px);
       box-shadow: .5rem .9rem 1.8rem rgba(#999, .3);
+    }
+    &:focus{
+      outline:none;
     }
 
   }
   &__checkbox{
     display: none;
   }
+&__algo{
+  //width: :
+    border: none;
+    position: relative;
+    display:inline-block;
+    padding: .5rem;
+    background-color: #555;
+    border-radius: 50%;
+    width: 4rem;
+    height: 4rem;
+    margin-left: 1.5rem;
+    box-shadow: .3rem .7rem 1.8rem rgba(#777, .2);
+    transition: all .3s;
+    &:hover{
+      transform: scaleX(1.2) scaleY(1.1) translateY(-2px);
+      box-shadow: .5rem .9rem 1.8rem rgba(#999, .3);
+    }
+    &:focus{
+      outline:none;
+    }
+  }
+  &__svg{
+    // position: absolute;
+    // top:50%;
+    // left:50%;
+    // transform: translate(-50%,-50%);
+    width: 80%;
+    height: 80%;
+    // border-radius: 50%;
+    fill: #fff;
+  }
+  &__animation{
+    animation: rotateSVG 1s infinite;
+  }
 
+}
+
+
+@keyframes rotateSVG {
+  from {transform: rotate(0deg);}
+  to {transform: rotate(360deg);}
 }

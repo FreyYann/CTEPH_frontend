@@ -10,6 +10,7 @@ export default function(state = [], action){
         return state;
       case STORE_FILE :
       case CLEAR_FILE :
+        // console.log(action.payload);
         return action.payload;
     default:
       return state;

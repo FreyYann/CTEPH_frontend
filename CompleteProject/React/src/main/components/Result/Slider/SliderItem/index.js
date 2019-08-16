@@ -10,11 +10,11 @@ const SliderItem = (props) =>{
   return (
     <li id={props.id} className="slider__item">
           <img onClick={()=>{props.onSelect(props.id); props.onChangeIcon(images)}} className="slider__img"
-           src={images.generated}
+           src={images.original}
             alt="generated"/>
           <div style={{display:'none'}}>
             <img className="slider__img"
-             src={images.original}
+             src={images.generated}
               alt="original"/>
           </div>
     </li>

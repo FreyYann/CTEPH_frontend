@@ -8,7 +8,7 @@ const Narrator = () =>{
             <div className="narrator ">
             <div className="heading mt-lg mb-lg">
             <p className="heading__secondary border-bt">
-              Welcome to CTEHI
+              Welcome to CTEPH
             </p>
             </div>
             <div className="row">
@@ -35,13 +35,13 @@ const Narrator = () =>{
                   </div>
                   <ul className="narrator__list ml-lg">
                     <li className="narrator__item">
-                      <p className="narrator__text">  ipsum dolor sit amet, consectetur adipisicing elit. Quidem ea maxime inventore, saepe libero excepturi ad dolores cupiditate dicta, incidunt obcaecati asperiores voluptas quos in qui natus explicabo deleniti sunt.</p>
+                      <p className="narrator__text">First upload all your CT Scan or CAT Scan images in dicom or any other format to able to review them.  </p>
                     </li>
                     <li className="narrator__item">
-                      <p className="narrator__text">  ipsum dolor sit amet, consectetur adipisicing elit. Autem, temporibus asperiores nulla voluptatum eius ad amet repellendus id earum labore atque similique doloremque at, delectus incidunt accusantium reprehenderit maxime aspernatur?</p>
+                      <p className="narrator__text">by clicking the "Algorithm!" button on top all the images will be sent to our AI algorithm to start the image detection process.</p>
                     </li>
                     <li className="narrator__item">
-                      <p className="narrator__text">  ipsum dolor sit amet, consectetur adipisicing elit. Repellat dolores sint facilis expedita fugiat, velit animi nihil dolore nam, libero est illo rerum doloremque, sed sapiente eaque odit porro commodi!</p>
+                      <p className="narrator__text">The algorithm result with predictions will appear next to the original images for you to review and do a faster and more accurate diagnosis.</p>
                     </li>
                   </ul>
                 </div>

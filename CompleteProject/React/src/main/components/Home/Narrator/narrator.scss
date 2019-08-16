@@ -69,10 +69,11 @@
   }
   &__item{
       &:not(:last-child){
-        margin-bottom: 20px;
+        margin-bottom: 5rem;
       }
   }
   &__text{
+    color: #ddd;
     font-size: 1.3rem;
   }
 

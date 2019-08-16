@@ -13,36 +13,50 @@ require('./slider.scss');
 
 
 class Slider extends Component{
-  state={scrollIndex: 0};
+  state={scrollIndex: 0, index: 0 };
     constructor(props){
       super(props);
       this.sliderList= React.createRef();
     }
     componentDidMount(){
-      // console.log(list.length);
-
-      // this.list = this.props.filestorage;
-      // console.log(this.list)
-      // if(this.list)
+      // console.log(this.props.filestorage.length);
         this.props.changeInputField(this.props.filestorage.length);
-      // else
-      //   this.list = list;
-      // console.log(this.props.filestorage);
     }
 
+    // static getDerivedStateFromProps(props, state){
+    //   console.log("index " + state.index);
+    //   if(state.index === 1)
+    //     props.onUploadImages( props.filestorage[0]);
+    //     // console.log( props.filestorage[0] );
+    //   return {index: state.index+1};
+    // }
     render(){
       // console.log(this.list)
       // this.list.map(image => console.log(image));
+      let files= [] ;
+      if(this.props.filestorage.length > 0)
+        files = this.props.filestorage;
+        // console.log(files);
+
       return(
         <div className="slider">
           <ul ref={this.sliderList} className="slider__list" onWheel={this.onWheel}>
             {
-             this.props.filestorage.map((image , idx)=><SliderItem key={idx} id={idx}
+             files.map((image , idx)=><SliderItem key={idx} id={idx}
               images={image} onSelect={this.onSelect} onChangeIcon={this.props.onChangeIcon}/>)
             }
           </ul>
         </div>
       );
+    }
+    componentDidUpdate(){
+      // console.log(this.props);
+      // console.log(this.props.filestorage[0]);
+      if(this.state.index <=0 && this.props.filestorage.length > 0){
+        // console.log(this.props.filestorage[0])
+        this.props.onUploadImages( this.props.filestorage[0]);
+        this.setState({index: this.state.index+1});
+      }
     }
 
     onSelect = (id) =>{
@@ -71,8 +85,8 @@ class Slider extends Component{
 
     }
     this.sliderList.current.scrollLeft += event.deltaY;
-    let image = {original:lists[scrollIndex].childNodes[1].childNodes[0].src ,
-                 generated: lists[scrollIndex].childNodes[0].src }
+    let image = {original: lists[scrollIndex].childNodes[0].src,
+                 generated: lists[scrollIndex].childNodes[1].childNodes[0].src }
     this.props.onChangeIcon(image);
 
     for(let item of lists){

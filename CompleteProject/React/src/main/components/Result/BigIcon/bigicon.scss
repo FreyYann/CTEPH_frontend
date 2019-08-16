@@ -1,14 +1,13 @@
 .bigicon{
   height: 70vh;
   background-color: #555;
-
   display: flex;
   justify-content: center;
   align-items: center;
-  &__container{
-    height: 65vh;
-    width: 70%;
 
+  &__container{
+    height: 69vh;
+    width: 69vh;
     border-radius: 2px;
     overflow: hidden;
     box-shadow: .5rem 1rem 2rem rgba(#000, .3);
@@ -20,7 +19,6 @@
   &__container-switch{
     height: 65vh;
     width: 45%;
-
     border-radius: 2px;
     overflow: hidden;
     box-shadow: .5rem 1rem 2rem rgba(#000, .3);

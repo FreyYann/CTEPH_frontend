@@ -8,7 +8,11 @@ const reOrganizePhotoGraphImages = (origins, results ) =>{
   let listOfImages = [];
   for(let i = 0 ; i < origins.length ; i++){
     // console.log(origins[i], results[i]);
-    listOfImages.push({'original': "./static/_png/"+origins[i], 'generated':"./static/_result/"+results[i]});
+    /*
+        To run local use these changes
+        listOfImages.push({'original': "./static/_png/"+origins[i], 'generated':"./static/_result/"+results[i]});
+    */
+    listOfImages.push({'original': "./static/png/"+origins[i], 'generated':"./static/result/"+results[i]});
   }
   return listOfImages;
 }
@@ -32,7 +36,11 @@ export const uploadFilesToDataBase =  (files)=> async dispatch => {
       }
 
       try{
-      const res = await axios.post(`http://localhost:5000/api/sendFile`, formData);
+        /*
+        To run locally use these changes
+        const res = await axios.post(`http://localhost:5000/api/sendFile`, formData);
+        */
+      const res = await axios.post(`/api/sendFile`, formData);
       console.log(res.data.success);
     }catch(err){
       console.log(err);
@@ -45,13 +53,18 @@ export const uploadFilesToDataBase =  (files)=> async dispatch => {
 export const runAlgorithmInBackEnd =  ()=> async dispatch => {
     let listOfImages = [];
     try{
+      /*
+      To run locally use these changes
+        const res = await axios.get(`http://localhost:5000/api/algorithm`);
+      */
         // RUNS THE ALGORITHM IN THE BACKEND AND SEND THE USER BACK INFOMATION
-      const res = await axios.get(`http://localhost:5000/api/algorithm`);
+      const res = await axios.get(`/api/algorithm`);
         // STRUCTUR THE INFROMATION
       listOfImages = reOrganizePhotoGraphImages(res.data.origin,res.data.result);
       console.log(res.data.success);
     }catch(err){
       console.log(err);
+      console.log("your algorithm wasnt successful");
     }
     // MAKE THIS AN EMPTY ARRAY LIST
       dispatch( {type: type.STORE_FILE, payload: listOfImages });
@@ -60,8 +73,12 @@ export const runAlgorithmInBackEnd =  ()=> async dispatch => {
 //REMOVE FILES FROM THE LOCAL STORAGE
 export const removeFilesFromStorage =  ()=> async dispatch => {
     try{
+      /*
+      To run locally use these changes
+        const res = await axios.delete(`http://localhost:5000/api/removefiles`);
+      */
         // RUNS THE ALGORITHM IN THE BACKEND AND SEND THE USER BACK INFOMATION
-      const res = await axios.delete(`http://localhost:5000/api/removefiles`);
+      const res = await axios.delete(`/api/removefiles`);
       console.log(res.data.success);
     }catch(err){
       console.log(err);
@@ -89,10 +106,15 @@ export const clearFileFromBackEnd =  ()=> async dispatch => {
 
 
       try{
-        const res = await axios.delete(`http://localhost:5000/api/clearfiles`);
+        /*
+        To run locally use these changes
+          const res = await axios.delete(`http://localhost:5000/api/clearfiles`);
+        */
+        const res = await axios.delete(`/api/clearfiles`);
         console.log(res.data.success);
       }catch(err){
         console.log(err);
+        console.log("File has already been remove from system")
       }
       // remove the files from the state manager
       dispatch( {type: type.CLEAR_FILE, payload: [] }
