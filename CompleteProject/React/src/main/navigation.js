@@ -9,7 +9,7 @@ class Navigation extends PureComponent{
   constructor(props) {
     super(props);
     this.page = React.createRef();
-    console.log(props);
+    // console.log(props);
   }
   focusInputField = ()=>{this.page.current.focus();}
   changePageNumber = (event)=>{this.setState({pageNumber:event.target.value})}

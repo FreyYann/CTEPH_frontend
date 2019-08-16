@@ -82,6 +82,9 @@ class Slider extends Component{
         scrollIndex--;
     }else if( event.deltaY > 0 && scrollIndex < lists.length-1){
         scrollIndex++;
+        this.sliderList.current.scrollLeft =+30;
+        console.log(  this.sliderList.current.scrollLeft)
+        console.log( event.deltaY);
 
     }
     this.sliderList.current.scrollLeft += event.deltaY;

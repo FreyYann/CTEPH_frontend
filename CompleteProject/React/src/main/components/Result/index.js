@@ -62,7 +62,7 @@ class Result extends Component{
       runAlgorithmInBackEnd={this.runAlgorithmInBackEnd}
       activateCheckBox={this.checkBoxCheck}
       checkbox={this.state.checkbox}
-      icon={this.state.smallicon}
+      icon={this.state.bigicon}
       onSwitchIcon={this.onSwitchIcon}/>
 
       <BigIcon iconbg={this.state.bigicon}

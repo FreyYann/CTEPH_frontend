@@ -13,14 +13,14 @@ const BigIcon = (props) =>{
         iconbg &&  checkbox &&
           <div className="bigicon__container-switch" >
               <img className="bigicon__img"
-              src={iconsm}
+              src={iconbg}
               alt="bigicon" />
           </div>
         }
       {iconbg &&
          <div className= {`  ${checkbox? "bigicon__container-switch": "bigicon__container"}`} >
             <img className="bigicon__img"
-            src={iconbg}
+            src={iconsm}
             alt="bigicon" />
         </div>
       }
