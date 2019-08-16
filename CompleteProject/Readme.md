@@ -14,6 +14,7 @@ Hello In this container holds the react and flask application applicaiton
   <li>The styling are seperated into components so it make it easy to modify if you want</li>
   <li>when changing the style while the server is going for the front end it does it auto-matically</li>
   <li>You should implement a route guard on the result route when their is no upload images</li>
+  <li>implement pre loading and cache images so it can show in .3s instead of .8s for 200 image</li>
 </ul>
 <br><br>
 <h4>Back End (React Folder)</h4>
@@ -27,6 +28,6 @@ Hello In this container holds the react and flask application applicaiton
   <li>
     You guys should figure out a way to catch all routes in the backend so that it goes back to the index.html route.
   </li>
-  
+
 </ul>
 peace out Nick
