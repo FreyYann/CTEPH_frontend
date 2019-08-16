@@ -24,6 +24,7 @@
   &__link,
   &__link:link,
   &__link:visited{
+    backface-visibility: hidden;
     cursor: pointer;
     display: flex;
     color: inherit;
