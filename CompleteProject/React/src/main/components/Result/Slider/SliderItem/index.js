@@ -13,12 +13,14 @@ const SliderItem = (props) =>{
            src={images.original}
             alt="generated"/>
           <div style={{display:'none'}}>
-            <img className="slider__img"
-             src={images.generated}
-              alt="original"/>
+            {images.generated}
           </div>
     </li>
   );
 }
 
 export default SliderItem;
+
+// <img className="slider__img"
+//  src={images.generated}
+//   alt="original"/>

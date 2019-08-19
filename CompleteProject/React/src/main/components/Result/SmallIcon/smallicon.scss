@@ -32,6 +32,7 @@
     align-items: center;
   }
   &__btn{
+    cursor:pointer;
     border: none;
     position: relative;
     display:inline-block;
@@ -61,17 +62,25 @@
     border: none;
     position: relative;
     display:inline-block;
-    padding: .5rem;
+    padding: 1rem;
+    cursor: pointer;
     background-color: #555;
-    border-radius: 50%;
-    width: 4rem;
-    height: 4rem;
+    color: #fff;
+    font-size: 900;
+    border-radius:  3px;
+    // border-radius: 50%;
+    // width: 4rem;
+    // height: 4rem;
     margin-left: 1.5rem;
-    box-shadow: .3rem .7rem 1.8rem rgba(#777, .2);
+    box-shadow: .3rem .7rem 1.4rem rgba(#777, .2);
     transition: all .3s;
     &:hover{
       transform: scaleX(1.2) scaleY(1.1) translateY(-2px);
       box-shadow: .5rem .9rem 1.8rem rgba(#999, .3);
+    }
+    &:active{
+      transform: scaleX(1.2) scaleY(1.1) translateY(-1px);
+      box-shadow: .5rem .9rem 1.8rem rgba(#999, .25);
     }
     &:focus{
       outline:none;
@@ -93,8 +102,37 @@
 
 }
 
+.generate{
 
-@keyframes rotateSVG {
-  from {transform: rotate(0deg);}
-  to {transform: rotate(360deg);}
+  &__line{
+    position: relative;
+    width:100%;
+    height:5px;
+    border-left: 1px solid #333;
+    border-right: 1px solid #333;
+    background-color: #ddd;
+  }
+  &__bar{
+    width: 40px;
+    height:5px;
+    position: absolute;
+    left: -10%;
+    background-color: #00f;
+    transform:  skewX(45deg);
+    animation: loadBar 5s infinite;
+  }
+}
+
+// @keyframes rotateSVG {
+//   from {transform: rotate(0deg);}
+//   to {transform: rotate(360deg);}
+// }
+
+@keyframes loadBar{
+    0%{
+      left: -10%;
+    }
+    100%{
+      left: 110%;
+    }
 }

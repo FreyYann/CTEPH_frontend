@@ -12,24 +12,18 @@ class Slide extends Component{
     super(props);
     this.state={
         currentSlide: -1,
-        words:[ "machine dolor sit amet, consectetur adipisicing elit.",
-                "x-ray dolor sit amet, consectetur adipisicing elit.",
-                "doctor dolor sit amet, consectetur adipisicing elit."
+        words:[ "First scan the body for images of the organ",
+                "Then collect the x-ray of the pacient from machine",
+                "Examine issue with the pacients x-ray"
               ],
-        type:'machine dolor sit amet, consectetur adipisicing elit.',
+        type:'First scan the body for images of the organ',
         index:0
       };
     this.sliders = React.createRef();
     this.navSliders = React.createRef();
   }
   componentDidMount(){
-    // const { currentSlide, type, words } = this.state;
     this.slide = setInterval(this.switchSlides.bind(this), 10000);
-    // console.log(words);
-    // console.log("type :" ,type)
-    // console.log(currentSlide)
-    // this.setState({type:words[0]});
-    // this.frame = setInterval(this.typeWords, 100);
   }
 
   switchSlides(){
@@ -41,16 +35,8 @@ class Slide extends Component{
   }
   typeWords = ()=>{
     let { currentSlide, type, words, index } = this.state;
-    // console.log(type);
-    // console.log("type");
-
-    // if(this.state.currentSlide < 0){
-    //   this.state.word[0];
-    // }else{
-    // }
-    // console.log(!!words[currentSlide][index])
-    if(!!words[currentSlide][index])
-      this.setState({ type:type+ (words[(currentSlide+1)%3][index] || ''), index: index+1 });
+    if(!!words[(currentSlide+1)%3][index] || words[(currentSlide+1)%3][index] === '' )
+      this.setState({ type:type+ words[(currentSlide+1)%3][index], index: index+1 });
   }
 
 

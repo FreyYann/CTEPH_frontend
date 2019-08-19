@@ -8,25 +8,24 @@ import Slider from './Slider';
 require('./result.scss');
 
 class Result extends Component{
-  state = { smallicon: '', bigicon: '', checkbox: true, generate: false};
+  state = { smallicon: '', bigicon: '', checkbox: true, generate: false, modify: false};
   constructor(props){
     super(props);
     props.getPath(props.location.pathname);
   }
   componentDidMount(){
-    // console.log(this.props.filestorage);
     if(this.props.filestorage.length){
+      let modify = false;
       let bigicon =this.props.filestorage[0].generated;
       let smallicon =this.props.filestorage[0].original;
-      this.setState({bigicon, smallicon });
       this.props.changeInputField(this.props.filestorage.length);
+      if(this.props.filestorage.length > 0){
+        modify = true;
+      }
+      this.setState({bigicon, smallicon, modify });
     }
-
-    // console.log("update "+this.state.index);
-    // this.setState({index: this.state.index+1});
   }
   onUploadImages = ({generated, original}) => {
-    // console.log("upload images ");
     // CHANGES BIG IMAGES TO THE ACTUAL  IMAGES
     if(!generated)  generated = '';
     if(!original) original ='';
@@ -41,16 +40,13 @@ class Result extends Component{
   }
 
   checkBoxCheck= ()=>{
-    // console.log(this.state.checkbox);
     this.setState( {checkbox: !this.state.checkbox });
   }
   runAlgorithmInBackEnd = async () =>{
-    // console.log("runAlgorithmInBackEnd");
-    this.setState({generate:!this.state.generate});
-    await this.props.runAlgorithmInBackEnd();
-    // console.log(this.props.filestorage.length);
-    await this.props.changeInputField(this.props.filestorage.length);
-    this.setState({generate:!this.state.generate});
+      this.setState({generate:!this.state.generate});
+      await this.props.runAlgorithmInBackEnd();
+      await this.props.changeInputField(this.props.filestorage.length);
+      this.setState({generate:!this.state.generate, modify:!this.state.modify});
   }
 
   render(){
@@ -58,15 +54,16 @@ class Result extends Component{
     return (
       <section className="result">
       <SmallIcon
+      modify={this.state.modify}
       generate={this.state.generate}
       runAlgorithmInBackEnd={this.runAlgorithmInBackEnd}
       activateCheckBox={this.checkBoxCheck}
       checkbox={this.state.checkbox}
-      icon={this.state.bigicon}
+      icon={this.state.smallicon}
       onSwitchIcon={this.onSwitchIcon}/>
 
-      <BigIcon iconbg={this.state.bigicon}
-      iconsm={this.state.smallicon}
+      <BigIcon iconbg={this.state.smallicon}
+      iconsm={this.state.bigicon }
        checkbox={this.state.checkbox}/>
 
       <Slider

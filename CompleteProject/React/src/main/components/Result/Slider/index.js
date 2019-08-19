@@ -22,22 +22,10 @@ class Slider extends Component{
       // console.log(this.props.filestorage.length);
         this.props.changeInputField(this.props.filestorage.length);
     }
-
-    // static getDerivedStateFromProps(props, state){
-    //   console.log("index " + state.index);
-    //   if(state.index === 1)
-    //     props.onUploadImages( props.filestorage[0]);
-    //     // console.log( props.filestorage[0] );
-    //   return {index: state.index+1};
-    // }
     render(){
-      // console.log(this.list)
-      // this.list.map(image => console.log(image));
       let files= [] ;
       if(this.props.filestorage.length > 0)
         files = this.props.filestorage;
-        // console.log(files);
-
       return(
         <div className="slider">
           <ul ref={this.sliderList} className="slider__list" onWheel={this.onWheel}>
@@ -50,21 +38,16 @@ class Slider extends Component{
       );
     }
     componentDidUpdate(){
-      // console.log(this.props);
-      // console.log(this.props.filestorage[0]);
       if(this.state.index <=0 && this.props.filestorage.length > 0){
-        // console.log(this.props.filestorage[0])
         this.props.onUploadImages( this.props.filestorage[0]);
         this.setState({index: this.state.index+1});
       }
     }
 
     onSelect = (id) =>{
-      // console.log(id);
       let lists = this.sliderList.current.childNodes;
       let scrollIndex = 0;
       lists.forEach((item, idx)=>{
-        // console.log(Number(item.id) === idx)
         if(Number(item.id) === id)scrollIndex =idx;
       });
       this.setState({scrollIndex});
@@ -82,14 +65,11 @@ class Slider extends Component{
         scrollIndex--;
     }else if( event.deltaY > 0 && scrollIndex < lists.length-1){
         scrollIndex++;
-        this.sliderList.current.scrollLeft =+30;
-        console.log(  this.sliderList.current.scrollLeft)
-        console.log( event.deltaY);
-
     }
     this.sliderList.current.scrollLeft += event.deltaY;
+    // console.log(lists[scrollIndex].childNodes[1].innerText);
     let image = {original: lists[scrollIndex].childNodes[0].src,
-                 generated: lists[scrollIndex].childNodes[1].childNodes[0].src }
+                 generated: lists[scrollIndex].childNodes[1].innerText }
     this.props.onChangeIcon(image);
 
     for(let item of lists){
@@ -100,7 +80,6 @@ class Slider extends Component{
     this.setState({scrollIndex});
     }
 }
-// this.props.uploadFilesToDataBase(list.length);
 
 const mapStateToProps = (state) => {
   return {

@@ -27,6 +27,7 @@
     top:0;
     left:50%;
     transform: translateX(-50%);
+    // cursor: pointer;
     &-svg{
       fill: #0f0;
       width: 60%;
@@ -38,6 +39,7 @@
     bottom: 0;
     left: 50%;
     transform: translateX(-50%);
+    // cursor: pointer;
     &-svg{
       fill: #f00;
       width: 50%;

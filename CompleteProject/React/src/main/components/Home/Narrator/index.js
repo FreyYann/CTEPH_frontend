@@ -35,13 +35,24 @@ const Narrator = () =>{
                   </div>
                   <ul className="narrator__list ml-lg">
                     <li className="narrator__item">
-                      <p className="narrator__text">First upload all your CT Scan or CAT Scan images in dicom or any other format to able to review them.  </p>
+                      <p className="narrator__text">
+                        First upload all your CT Scan or CAT Scan images
+                        in dicom or any other format to able to review them.
+                      </p>
                     </li>
                     <li className="narrator__item">
-                      <p className="narrator__text">by clicking the "Algorithm!" button on top all the images will be sent to our AI algorithm to start the image detection process.</p>
+                      <p className="narrator__text">
+                        by clicking the "Algorithm!" button on top all the images
+                        will be sent to our AI algorithm to start the image
+                        detection process.
+                      </p>
                     </li>
                     <li className="narrator__item">
-                      <p className="narrator__text">The algorithm result with predictions will appear next to the original images for you to review and do a faster and more accurate diagnosis.</p>
+                      <p className="narrator__text">
+                        The algorithm result with predictions will appear next
+                        to the original images for you to review and do a faster
+                        and more accurate diagnosis.
+                        </p>
                     </li>
                   </ul>
                 </div>

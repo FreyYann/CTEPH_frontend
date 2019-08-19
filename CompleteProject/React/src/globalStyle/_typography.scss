@@ -28,6 +28,13 @@
     color: transparent;
     letter-spacing: 1rem;
     font-style: italic;
+    &--2{
+      background-image:none;
+      -webkit-background-clip: none;
+      background-clip: none;
+      color: darkgreen;
+      text-shadow: 2px 2px 4px rgba(#000, .5);
+    }
   }
   &__tertiary{
     font-size: 2rem;

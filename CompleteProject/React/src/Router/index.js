@@ -56,4 +56,5 @@ class Routes extends PureComponent{
 }
 
 // export default Routes;
+/*Add route guard*/
 export default connect(null,{getNavigationItems})(Routes);
