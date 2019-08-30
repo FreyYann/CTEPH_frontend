@@ -66,7 +66,7 @@ def upload_file():
 
     # turn dcm to png
     transormation(UPLOAD_FOLDER, IMAGE_FOLDER)
-    print os.listdir(IMAGE_FOLDER)
+    # print os.listdir(IMAGE_FOLDER)
     # dirlist = os.listdir(IMAGE_FOLDER)
     # dummylist = ['' for x in dirlist]
 
@@ -88,37 +88,13 @@ def inference():
 
     rangeX=range(len(dirlist))
     dirlist=[x for x in dirlist if 'png' in x]
-    print "Hello look at your self and tell me that you can do it dont tell me i am not good en"
-    print result[0]
-    print "***********"
-    print "***********"
-    print "***********"
-    print "***********"
     dirlist=sorted(dirlist, key=lambda x: int(re.findall(r'[0-9]+', x)[0]))
-    print "***********"
-    print "***********"
-    print "***********"
-    print "***********"
     result=sorted(result)
-
-    print "***********"
-    print "***********"
-    print "***********"
-    print "***********"
-    # print rangeX
-    # print dirlist
-    # print result
     return jsonify({
     'origin' : dirlist,
     'result' : result,
     'success': 'algorithm has been successfully'
     }), 201
-    # return render_template('result.html', rangeX=range(len(dirlist)),
-    #                        dirlist=sorted(dirlist, key=lambda x: int(''.join(re.findall(r'\d+', x)))),
-    #                        result=sorted(result),
-    #                        originalImage=sorted(dirlist, key=lambda x: int(''.join(re.findall(r'\d+', x))))[0],
-    #                        createImage=sorted(result)[0]
-    #                        )
 
 
 

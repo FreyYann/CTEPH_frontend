@@ -20,19 +20,3 @@ def index():
 
 if __name__ == '__main__':
     app.run(host="0.0.0.0", debug=True)
-    # name = False
-    # form = UserForm()
-
-    # if form.validate_on_submit():
-    #     # flash('bung~bung~bung~bung')
-    #     name = form.name.data
-    #     # Reset the form's breed data to be False
-    #     form.name.data = ''
-    #     import os
-    #     path = os.path.join(UPLOAD_FOLDER, name)
-    #     # os.system("mkdir %s" % path)
-    #     os.system("rm %s/*" % UPLOAD_FOLDER)
-    #     os.system("rm %s/*" % IMAGE_FOLDER)
-    #     os.system("rm %s/*" % RESULT_FOLDER)
-    #     # todo current user
-    # return render_template('home.html', form=form, name=name)
